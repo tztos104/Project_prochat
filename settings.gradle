@@ -1,0 +1,6 @@
+rootProject.name = 'prochat'
+
+include 'yj_gateway'
+include 'yj_user-service'
+include 'yj_activity-service'
+include 'yj_stock-service'

@@ -1,0 +1,88 @@
+server:
+  port: 8000
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      default-filters:
+        - name : GlobalFilter
+          args:
+            baseMessage: asdsad
+            preLogger: true
+            postLogger: true
+
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE/
+#          uri: http://localhost:8081
+          predicates:
+            - Path=/user-service/**
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
+            #- AddRequestHeader=user-request, user-request-header  #?? ?? ????
+            #- AddResponseHeader=user-response, user-response-header
+
+
+        - id: user-service
+          uri: lb://USER-SERVICE/
+          #          uri: http://localhost:8081
+          predicates:
+            - Path=/user-service/login
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - CustomFilter
+        - id: user-service
+          uri: lb://USER-SERVICE/
+          #          uri: http://localhost:8081
+          predicates:
+            - Path=/user-service/join
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - CustomFilter
+
+        - id: activity-service
+#          uri: http://localhost:8082
+          uri: lb://ACTIVITY-SERVICE/
+          predicates:
+            - Path=/activity-service/**
+          filters:
+            - RewritePath=/activity-service/(?<segment>.*), /$\{segment}
+            - name: CustomFilter
+            - name: LoggingFilter #2? ?? ??? name???.
+
+        - id: newsfeed-service
+#          uri: http://localhost:8083
+          uri: lb://NEWSFEED-SERVICE/
+          predicates:
+            - Path=/newsfeed-service/**
+          filters:
+            - RewritePath=/newsfeed-service/(?<segment>.*), /$\{segment}
+            - CustomFilter
+
+        - id: stock-service
+            #          uri: http://localhost:8083
+          uri: lb://STOCK-SERVICE/
+          predicates:
+            - Path=/stock-service/**
+          filters:
+            - RewritePath=/stock-service/(?<segment>.*), /$\{segment}
+            - CustomFilter
+
+jwt:
+  secret-key: secret-key-20dhdfhkksnmcjhs-sdfjklsjlkcvhlksjdflksjnc
+  expired-time-ms: 2592000000

@@ -1,0 +1,50 @@
+server:
+  port: 0 #0? ??
+
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/prochat
+
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tztos104@gmail.com
+    password: spukdtcxzfnvufrz
+    properties:
+      mail:
+        debug: true
+        smtp.auth: true
+        smtp.timeout: 50000 # SMTP 서버에 연결을 시도하고 응답을 기다리는 최대 시간이 50,000ms
+        smtp.starttls.enable: true
+
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+jwt:
+  secret-key: secret-key-20dhdfhkksnmcjhs-sdfjklsjlkcvhlksjdflksjnc
+  expired-time-ms: 2592000000
+
+

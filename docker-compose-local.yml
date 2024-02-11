@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  prochat-redis:
+    container_name: prochat-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: tztos104/prochat-redis
+    ports:
+      - "6379:6379"
+
+  prochat-database:
+    container_name: prochat-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: tztos104/prochat-database
+
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: prochat
+
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+      - ./database/config:/docker-entrypoint-initdb.d
