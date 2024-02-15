@@ -11,10 +11,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class StockListResponse {
-   List<StockEntity> StockCode;
-   List<StockEntity> StockName;
+   List<String> StockCode;
+   List<String> StockName;
 
-    public StockListResponse(List<StockEntity> stockCode) {
+    public StockListResponse(List<String> stockCode) {
         StockCode = stockCode;
     }
 }

@@ -6,8 +6,11 @@ import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
 import com.example.yj_userservice.repository.CacheRepository;
 import com.example.yj_userservice.repository.UserRepository;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +26,7 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
     private final CacheRepository redisRepository;
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
 
     public Users loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -103,6 +107,10 @@ public class UserService implements UserDetailsService {
         // 업데이트된 멤버 정보로 변환하여 반환
         return Users.fromEntity(userRepository.save(member));
     }
+
+    CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitBreaker");
+
+
 
 
 }

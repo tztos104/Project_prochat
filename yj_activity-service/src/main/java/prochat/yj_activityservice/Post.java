@@ -25,7 +25,7 @@ public class Post {
                 entity.getTitle(),
                 entity.getContent(),
                 Users.fromEntity(entity.getMembers()),
-                entity.getStockCode,
+                entity.getStockCode(),
                 entity.getRegDate(),
                 entity.getUpdateDate(),
                 entity.getRemoveDate()

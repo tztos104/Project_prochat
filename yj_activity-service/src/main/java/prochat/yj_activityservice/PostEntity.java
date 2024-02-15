@@ -42,7 +42,7 @@ public class PostEntity {
     @JoinColumn(name = "post_id")
     private List<LikeEntity> likes;
 
-    private String StockCode;
+    private String stockCode;
     private Timestamp regDate;
     private Timestamp updateDate;
     private Timestamp removeDate;
@@ -58,12 +58,12 @@ public class PostEntity {
     }
 
 
-    public static PostEntity of(String title, String content, UsersEntity memberEntity, String StockCode) {
+    public static PostEntity of(String title, String content, UsersEntity memberEntity, String stockCode) {
         PostEntity entity = new PostEntity();
         entity.setTitle(title);
         entity.setContent(content);
         entity.setMembers(memberEntity);
-        entity.setStockCode(StockCode);
+        entity.setStockCode(stockCode);
         return entity;
     }
 }

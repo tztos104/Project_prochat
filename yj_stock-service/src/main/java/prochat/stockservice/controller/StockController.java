@@ -27,7 +27,7 @@ public class StockController {
     //종목리스트 가져오기 코드만
     @GetMapping
     public Response<StockListResponse> getStockCodeList() {
-        List<StockEntity> stockList = stockRepository.findStockCode();
+        List<String> stockList = stockRepository.findStockCode();
         return Response.success(new StockListResponse(stockList));
     }
     //종목 리스트 보기

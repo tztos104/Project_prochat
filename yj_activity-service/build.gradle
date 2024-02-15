@@ -28,6 +28,7 @@ ext {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation project(':yj_user-service')
     implementation 'com.vladmihalcea:hibernate-types-60:2.20.0'
     compileOnly 'org.projectlombok:lombok'
