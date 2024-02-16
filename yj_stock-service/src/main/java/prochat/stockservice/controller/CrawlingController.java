@@ -2,14 +2,9 @@ package prochat.stockservice.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import prochat.stockservice.ResponseDTO;
-import prochat.stockservice.model.StockDataRequest;
-import prochat.stockservice.model.StockEntity;
+import prochat.stockservice.model.request.StockDataRequest;
 import prochat.stockservice.model.reponse.Response;
-import prochat.stockservice.model.reponse.StockDataResponse;
-import prochat.stockservice.repository.StockDataEntityRepository;
 import prochat.stockservice.repository.StockRepository;
 import prochat.stockservice.service.CrawlingService;
 

@@ -25,7 +25,7 @@ public class StockController {
     private final StockRepository stockRepository;
     private final StockDataEntityRepository stockDataEntityRepository;
     //종목리스트 가져오기 코드만
-    @GetMapping
+    @GetMapping("/list")
     public Response<StockListResponse> getStockCodeList() {
         List<String> stockList = stockRepository.findStockCode();
         return Response.success(new StockListResponse(stockList));
@@ -38,14 +38,14 @@ public class StockController {
     }
 
  //종목상세보기
-    @GetMapping("/{stockCode}")
+    @GetMapping("/stocks/{stockCode}")
     public ResponseEntity<StockEntity> getStockDetails(@PathVariable String stockCode) {
         Optional<StockEntity> stockOptional = stockRepository.findByStockCode(stockCode);
         return stockOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 //차트보기
-    @GetMapping("/{symbol}")
+    @GetMapping("/stocks/{symbol}")
     public ResponseEntity<List<StockDataEntity>> getStockChart(
             @PathVariable String symbol) {
         List<StockDataEntity> stockChart = stockDataEntityRepository.findBySymbol(symbol);

@@ -2,7 +2,6 @@ package prochat.stockservice.service;
 
 
 import lombok.RequiredArgsConstructor;
-import org.apache.http.client.utils.DateUtils;
 import org.jsoup.Connection;
 import org.jsoup.Connection.Method;
 import org.jsoup.Jsoup;
@@ -10,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
-import prochat.stockservice.model.StockCodeList;
 import prochat.stockservice.model.StockDataEntity;
 import prochat.stockservice.model.StockEntity;
 import prochat.stockservice.repository.StockDataEntityRepository;
@@ -18,13 +16,8 @@ import prochat.stockservice.repository.StockRepository;
 
 import java.io.IOException;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
-import java.util.List;
 import java.util.Map;
 
 
@@ -37,14 +30,14 @@ public class CrawlingService {
     private static final String NaverStockUrl = "https://finance.naver.com/sise/sise_market_sum.naver";
     private final StockRepository stockRepository;
     private final StockDataEntityRepository stockDataEntityRepository;
-    private final StockCodeList stockCodeList = new StockCodeList();
+
     /**
      * 네이버에서 주식 정보를 크롤링하여 StockEntity 리스트로 반환하는 메서드
      * @return 크롤링한 주식 정보를 담은 StockEntity 리스트
      */
     public void StockData() {
 
-       List<String> list=new ArrayList<>();
+
         try {
             // 네이버 시가총액 페이지에 접속하여 쿠키 획득
             Connection.Response response = Jsoup.connect(StockUrlforCookies).method(Method.GET).execute();
@@ -88,7 +81,7 @@ public class CrawlingService {
                         stockEntity.setStartPrice(Integer.parseInt(stockinfo.get(8).text().replaceAll("\\,","").trim()));
                         stockEntity.setHighPrice(Integer.parseInt(stockinfo.get(9).text().replaceAll("\\,","").trim()));
                         stockEntity.setLowPrice(Integer.parseInt(stockinfo.get(10).text().replaceAll("\\,","").trim()));
-                        list.add(code);
+
                         stockRepository.save(stockEntity);
 
 
@@ -96,7 +89,7 @@ public class CrawlingService {
                 }
             }
 
-            stockCodeList.setStockCodeList(list); }
+             }
         catch(Exception e) {
             e.printStackTrace();
         }
@@ -106,7 +99,7 @@ public class CrawlingService {
 
 
 
-    public void crawlAndSaveStockData(String symbol, String timeframe, int count) {
+    public  void crawlAndSaveStockData(String symbol, String timeframe, String count) {
         String url = "https://fchart.stock.naver.com/sise.nhn?symbol=" + symbol + "&timeframe=" + timeframe + "&count=" + count + "&requestType=0";
 
         try {
@@ -131,6 +124,7 @@ public class CrawlingService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 

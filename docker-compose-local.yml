@@ -25,3 +25,20 @@ services:
     volumes:
       - ./database/config:/etc/mysql/conf.d
       - ./database/config:/docker-entrypoint-initdb.d
+  prochat-jenkins:
+    container_name: prochat-jenkins
+    build:
+      dockerfile: Dockerfile
+      context: ./jenkins
+    restart: unless-stopped
+    user: root
+    ports:
+      - 8888:8080
+      - 50000:50000
+    volumes:
+      - ./jenkins:/var/jenkins_home
+      - ./jenkins/.ssh:/root/.ssh
+
+      # 다른 설정들 추가
+volumes:
+  jenkins_data:
