@@ -27,6 +27,7 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 import prochat.yj_batchstockservice.model.StockDataEntity;
 import prochat.yj_batchstockservice.model.StockEntity;
@@ -48,7 +49,7 @@ public class BatchConfig {
 
     @Bean
     public Job simpleJob1(JobRepository jobRepository, Step dateStep, Step step2) {
-        return new JobBuilder("simpleJob545423", jobRepository)
+        return new JobBuilder("simpleJob545423q", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .start(dateStep)
 
@@ -61,16 +62,16 @@ public class BatchConfig {
 
         return new StepBuilder("dateStep", jobRepository)
 
-                .<StockEntity,  List<StockDataEntity>>chunk(100, platformTransactionManager)
+                .<StockEntity,  List<StockDataEntity>>chunk(500, platformTransactionManager)
                 .reader(dataReader())
                 .processor(dataProcessor())
                 .writer(dataWriter())
-                .build()
-                ;
+                .taskExecutor(taskExecutor())
+                .build();
     }
     @Bean
     public ItemProcessor<StockEntity, List<StockDataEntity>> dataProcessor() {
-        return stockEntity -> crawlingService.crawlAndSaveStockData(stockEntity.getStockCode(), "day", "10");
+        return stockEntity -> crawlingService.crawlAndSaveStockData(stockEntity.getStockCode(), "day", "240");
     }
 
 
@@ -105,5 +106,12 @@ public class BatchConfig {
         };
     }
 
-
+    @Bean
+    public TaskExecutor taskExecutor(){
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(4);
+        executor.setMaxPoolSize(8);
+        executor.setThreadNamePrefix("async-thread-");
+        return executor;
+    }
 }

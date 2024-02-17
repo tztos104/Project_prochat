@@ -1,6 +1,7 @@
 package prochat.yj_batchstockservice.service;
 
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Connection;
 import org.jsoup.Connection.Method;
@@ -35,9 +36,10 @@ public class CrawlingService {
      * 네이버에서 주식 정보를 크롤링하여 StockEntity 리스트로 반환하는 메서드
      * @return 크롤링한 주식 정보를 담은 StockEntity 리스트
      */
+    @Transactional
     public void StockData() {
 
-
+        stockRepository.deleteAll();
         try {
             // 네이버 시가총액 페이지에 접속하여 쿠키 획득
             Connection.Response response = Jsoup.connect(StockUrlforCookies).method(Method.GET).execute();
@@ -81,6 +83,8 @@ public class CrawlingService {
                         stockEntity.setStartPrice(Integer.parseInt(stockinfo.get(8).text().replaceAll("\\,","").trim()));
                         stockEntity.setHighPrice(Integer.parseInt(stockinfo.get(9).text().replaceAll("\\,","").trim()));
                         stockEntity.setLowPrice(Integer.parseInt(stockinfo.get(10).text().replaceAll("\\,","").trim()));
+
+
 
                         stockRepository.save(stockEntity);
 
