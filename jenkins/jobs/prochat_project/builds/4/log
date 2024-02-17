@@ -1,0 +1,22 @@
+Started by user [8mha:////4DS6k5U7bXlP2KZR9Q46P25batNbgOJWNXVwOfVpgEW0AAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzmEgY+/dLi1CL9kqqS/GJDAxMAx2l9t8MAAAA=[0m이영준
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/prochat_project
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/tztos104/projsect_ProChat.git
+ > git init /var/jenkins_home/workspace/prochat_project # timeout=10
+Fetching upstream changes from https://github.com/tztos104/projsect_ProChat.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/tztos104/projsect_ProChat.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/tztos104/projsect_ProChat.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f2d55c3c9bb17bab874805b07d6d8cc5fe47d31d (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f2d55c3c9bb17bab874805b07d6d8cc5fe47d31d # timeout=10
+Commit message: "테스트 오류로 인한 백업"
+ > git rev-list --no-walk f2d55c3c9bb17bab874805b07d6d8cc5fe47d31d # timeout=10
+Finished: SUCCESS

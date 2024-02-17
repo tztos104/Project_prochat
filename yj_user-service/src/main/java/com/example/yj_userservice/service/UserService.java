@@ -108,7 +108,7 @@ public class UserService implements UserDetailsService {
         return Users.fromEntity(userRepository.save(member));
     }
 
-    CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitBreaker");
+    //CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitBreaker");
 
 
 

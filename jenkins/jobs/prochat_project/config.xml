@@ -1,8 +1,14 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
+  <actions/>
   <description>종목토론종토방</description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.38.0">
+      <projectUrl>https://github.com/tztos104/projsect_ProChat.git/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@5.2.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
@@ -23,9 +29,18 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H/1 * * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>java -jar /var/jenkins_home/workspace/prochat_project/yj_batchstock-service-0.0.1-SNAPSHOT.jar</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers/>
   <buildWrappers/>
 </project>
