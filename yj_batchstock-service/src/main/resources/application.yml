@@ -1,6 +1,6 @@
 
 server:
-  port: 8080 #0? ??
+  port: 9090 #0? ??
 
 
 spring:
@@ -10,6 +10,8 @@ spring:
     job:
       name: ${job.name:NONE}
       enabled: true
+    jdbc:
+      initialize-schema: always
 
 
 
