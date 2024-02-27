@@ -1,15 +1,59 @@
+# **프로젝트 소개**
+
+## **서비스 기능**
+<details>
+
+마이크로 서비스(MSA)로 3개의 서비스로 분리
+-API Gateway
+  -해당 API로 들어온 요청을 내부의 마이크로 서비스로 전달
+-회복탄력성
+  -Java Resilience 4j를 이용한 Circuit Breaker 회복탄력성 구축.
+
+- User-service 
+  - 가입
+  - 아이디 및 닉네임 중복체크
+  - 비밀번호 암호화, 업데이트
+  - jwt 토큰를 활용한 로그인, 로그아웃
+  - 프로필 관리
+- Activity-service 
+
+  - 게시글 관리
+    - 게시글 & 파일 추가, 삭제, 수정, 조회
+    - 유저 정보, 게시글 제목, 게시글 내용 등
+  - 게시글 검색 기능
+    - 작성 유정 아이디
+    - 게시글 제목, 게시글 내용 등을 통해 검색
+  - 댓글 작성 및 상호작용 기능
+  - 팔로우 기능
+  - 알람 기능
+
+- Newsfeed-service 
+  - 팔로우한 사용자들의 활동 확인
+  - 뉴스피드 정렬
+- Stock-sevice
+  - 스프링 배치 작업을 통하여 매일 정해진 시간에 주기적으로 데이터 업데이트
+    - 도커와 젠킨스로 작업 관리자로 스케쥴 관리
+  - 종목 리스트 및 데이터 관리
+  - 주가 차트 확인
+  - 이동평균선, 볼린전 밴드, MACD 기술적 지표
+ 
+
+</details>
 # **개발환경**
-![Java](https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white)
-![SpringBoot](https://img.shields.io/badge/SpringBoot-6DB33F.svg?&style=for-the-badge&logo=SpringBoot&logoColor=white)
+
+![Java](https://img.shields.io/badge/Java17-007396.svg?&style=for-the-badge&logo=Java&logoColor=white)
+![SpringBoot](https://img.shields.io/badge/Spring_Boot(3.2)-6DB33F.svg?&style=for-the-badge&logo=SpringBoot&logoColor=white)
+![SpringCloud](https://img.shields.io/badge/Spring_Cloud(3.2)-6DB33F.svg?&style=for-the-badge&logo=SpringBoot&logoColor=white)
+![SpringSecurity](https://img.shields.io/badge/spring_security-6DB33F.svg?&style=for-the-badge&logo=springsecurity&logoColor=white)
+![SpringBatch](https://img.shields.io/badge/Spring_Batch-6DB33F.svg?&style=for-the-badge&logo=SpringBoot&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?&style=for-the-badge&logo=mysql&logoColor=white)
 ![JPA](https://img.shields.io/badge/JPA-FF6C2C.svg?&style=for-the-badge&logo=JPA&logoColor=white)
-![SpringSecurity](https://img.shields.io/badge/springsecurity-6DB33F.svg?&style=for-the-badge&logo=springsecurity&logoColor=white)
 ![Redis](https://img.shields.io/badge/redis-DC382D.svg?&style=for-the-badge&logo=redis&logoColor=white)
-### DEV OPS
-![githubactions](https://img.shields.io/badge/githubactions-2088FF.svg?&style=for-the-badge&logo=githubactions&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-6DB33F.svg?&style=for-the-badge&logo=Swagger&logoColor=white)
+![github](https://img.shields.io/badge/github-2088FF.svg?&style=for-the-badge&logo=githubactions&logoColor=white)
 ![docker](https://img.shields.io/badge/docker-2496ED.svg?&style=for-the-badge&logo=docker&logoColor=white)
 ![jenkins](https://img.shields.io/badge/jenkins-D24939.svg?&style=for-the-badge&logo=jenkins&logoColor=white)
-### Tools
+![postman](https://img.shields.io/badge/postman-FF6C37.svg?&style=for-the-badge&logo=postman&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032.svg?&style=for-the-badge&logo=Git&logoColor=white)
 ![Intelli J](https://img.shields.io/badge/Intellijidea%20IDE-2C2255.svg?&style=for-the-badge&logo=intellijidea%20IDE&logoColor=white)
 # **Docker Compose 사용 가이드**
@@ -143,3 +187,10 @@ docker-compose port
 
 </details>
 
+# **기술적 이슈와 해결과정**
+<details>
+<summary>클릭하여 섹션 열기/닫기</summary>
+  
+![스크린샷 2024-02-27 175141](https://github.com/tztos104/Project_prochat/assets/128444192/3ef8265c-ef39-4393-91ce-9b475cee87aa)
+
+</details>
