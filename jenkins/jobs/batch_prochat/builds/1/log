@@ -1,7 +1,0 @@
-Started by user [8mha:////4DS6k5U7bXlP2KZR9Q46P25batNbgOJWNXVwOfVpgEW0AAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzmEgY+/dLi1CL9kqqS/GJDAxMAx2l9t8MAAAA=[0m이영준
-Running as SYSTEM
-Building in workspace /var/jenkins_home/workspace/batch_prochat
-[batch_prochat] $ /bin/sh -xe /tmp/jenkins3273253905414051097.sh
-+ echo /var/jenkins_home/workspace/batch_prochat
-/var/jenkins_home/workspace/batch_prochat
-Finished: SUCCESS
