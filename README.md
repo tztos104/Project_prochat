@@ -1,3 +1,17 @@
+# **개발환경**
+![Java](https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white)
+![SpringBoot](https://img.shields.io/badge/SpringBoot-6DB33F.svg?&style=for-the-badge&logo=SpringBoot&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?&style=for-the-badge&logo=mysql&logoColor=white)
+![JPA](https://img.shields.io/badge/JPA-FF6C2C.svg?&style=for-the-badge&logo=JPA&logoColor=white)
+![SpringSecurity](https://img.shields.io/badge/springsecurity-6DB33F.svg?&style=for-the-badge&logo=springsecurity&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-DC382D.svg?&style=for-the-badge&logo=redis&logoColor=white)
+### DEV OPS
+![githubactions](https://img.shields.io/badge/githubactions-2088FF.svg?&style=for-the-badge&logo=githubactions&logoColor=white)
+![docker](https://img.shields.io/badge/docker-2496ED.svg?&style=for-the-badge&logo=docker&logoColor=white)
+![jenkins](https://img.shields.io/badge/jenkins-D24939.svg?&style=for-the-badge&logo=jenkins&logoColor=white)
+### Tools
+![Git](https://img.shields.io/badge/Git-F05032.svg?&style=for-the-badge&logo=Git&logoColor=white)
+![Intelli J](https://img.shields.io/badge/Intellijidea%20IDE-2C2255.svg?&style=for-the-badge&logo=intellijidea%20IDE&logoColor=white)
 # **Docker Compose 사용 가이드**
 <details>
 <summary>클릭하여 섹션 열기/닫기</summary>
@@ -112,10 +126,20 @@ docker-compose port
 # **Api 명세**
 <details>
 <summary>클릭하여 섹션 열기/닫기</summary>
+![스크린샷 2024-02-27 213625](https://github.com/tztos104/Project_prochat/assets/128444192/b41319fe-0322-46ca-b11c-89ce57de69a9)
+![스크린샷 2024-02-27 213658](https://github.com/tztos104/Project_prochat/assets/128444192/d7ee66ec-0aa2-4682-918a-c09635ad5915)
+![스크린샷 2024-02-27 213731](https://github.com/tztos104/Project_prochat/assets/128444192/c5ce9943-c4bf-40d2-9def-d55c8179108d)
+![스크린샷 2024-02-27 213739](https://github.com/tztos104/Project_prochat/assets/128444192/797ce050-2eb8-4ec1-b58f-ae93f48768e4)
 
-![스크린샷 2024-02-27 170621](https://github.com/tztos104/Project_prochat/assets/128444192/b0b66719-6aee-4a6c-b22b-5b3e37de1633)
-![스크린샷 2024-02-27 170550](https://github.com/tztos104/Project_prochat/assets/128444192/dba77b1d-1e90-47f3-af75-afafb585171a)
-![스크린샷 2024-02-27 170214](https://github.com/tztos104/Project_prochat/assets/128444192/24ff67ad-a42c-4ff5-b1c4-22d993fd4d4d)
-![스크린샷 2024-02-27 170158](https://github.com/tztos104/Project_prochat/assets/128444192/fa7c3ece-2e7b-4d5a-9ce7-4dfcd2760f2d)
+
 
 </details>
+
+# **ERD 설계**
+<details>
+<summary>클릭하여 섹션 열기/닫기</summary>
+  
+![스크린샷 2024-02-27 175141](https://github.com/tztos104/Project_prochat/assets/128444192/3ef8265c-ef39-4393-91ce-9b475cee87aa)
+
+</details>
+
