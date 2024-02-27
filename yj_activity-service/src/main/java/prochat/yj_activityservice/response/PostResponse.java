@@ -3,7 +3,7 @@ package prochat.yj_activityservice.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import prochat.yj_activityservice.Post;
+import prochat.yj_activityservice.model.Post;
 
 import java.sql.Timestamp;
 
@@ -14,7 +14,7 @@ public class PostResponse {
     private Long id;
     private String title;
     private String content;
-    private UserResponse member;
+    private String member;
     private Timestamp regDate;
     private Timestamp updateDate;
     private Timestamp removerDate;
@@ -24,7 +24,7 @@ public class PostResponse {
                 post.getId(),
                 post.getTitle(),
                 post.getContent(),
-                UserResponse.fromUser(post.getMember()),
+                post.getMember(),
                 post.getRegDate(),
                 post.getUpdateDate(),
                 post.getRemoveDate()

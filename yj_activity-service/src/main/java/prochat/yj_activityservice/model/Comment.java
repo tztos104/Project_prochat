@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 public class Comment {
     private Long id;
     private String comment;
-    private Long userId;
-    private String userName;
+    private String userId;
+
     private Long postId;
     private Timestamp regDate;
     private Timestamp updateDate;
@@ -22,8 +22,8 @@ public class Comment {
         return new Comment(
                 entity.getId(),
                 entity.getComment(),
-                entity.getMember().getId(),
-                entity.getMember().getEmail(),
+                entity.getMember(),
+
                 entity.getPost().getId(),
                 entity.getRegDate(),
                 entity.getUpdateDate(),

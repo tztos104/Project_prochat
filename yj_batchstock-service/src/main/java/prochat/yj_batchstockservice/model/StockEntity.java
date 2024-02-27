@@ -36,9 +36,9 @@ public class StockEntity {
 
     private int fPrice;  //차이가격
 
-
-
     private float fRate;  // 등락률
 
 
+    public StockEntity(String abc, String companyAbc) {
+    }
 }

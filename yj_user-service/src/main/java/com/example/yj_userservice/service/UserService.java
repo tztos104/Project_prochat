@@ -9,15 +9,12 @@ import com.example.yj_userservice.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +24,7 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder encoder;
     private final CacheRepository redisRepository;
     private final CircuitBreakerFactory circuitBreakerFactory;
+
 
 
     public Users loadUserByUsername(String email) throws UsernameNotFoundException {

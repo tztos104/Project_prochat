@@ -11,11 +11,14 @@ import lombok.Getter;
 public class UserResponse {
     private Long id;
     private String email;
+    private String name;
 
     public static UserResponse fromUser(Users user) {
         return new UserResponse(
                 user.getId(),
-                user.getEmail()
+                user.getEmail(),
+
+                user.getName()
         );
     }
 }

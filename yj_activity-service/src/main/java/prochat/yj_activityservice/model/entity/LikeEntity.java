@@ -1,6 +1,7 @@
 package prochat.yj_activityservice.model.entity;
 
 
+import com.example.yj_userservice.dto.Users;
 import com.example.yj_userservice.dto.entity.UsersEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import jakarta.persistence.*;
-import prochat.yj_activityservice.PostEntity;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -25,9 +25,8 @@ public class LikeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
 
-    @ManyToOne
-    @JoinColumn(name = "members_id")
-    private UsersEntity member;
+
+    private Users member;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
@@ -56,13 +55,13 @@ public class LikeEntity {
         this.updateDate = Timestamp.from(Instant.now());
     }
 
-    public static LikeEntity ofPost(PostEntity post, UsersEntity member) {
+    public static LikeEntity ofPost(PostEntity post, Users member) {
         LikeEntity entity = new LikeEntity();
         entity.setPost(post);
         entity.setMember(member);
         return entity;
     }
-    public static LikeEntity ofComment(CommentEntity comment, UsersEntity member) {
+    public static LikeEntity ofComment(CommentEntity comment, Users member) {
         LikeEntity entity = new LikeEntity();
         entity.setComment(comment);;
         entity.setMember(member);

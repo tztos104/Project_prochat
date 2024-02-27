@@ -1,6 +1,7 @@
 package prochat.yj_activityservice.model.entity;
 
 
+import com.example.yj_userservice.dto.Users;
 import com.example.yj_userservice.dto.entity.UsersEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import prochat.yj_activityservice.PostEntity;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -30,9 +30,7 @@ public class CommentEntity {
     @Column(name = "comment")
     private String comment;
 
-    @ManyToOne
-    @JoinColumn(name = "members_id")
-    private UsersEntity member;
+    private String member;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
@@ -62,7 +60,7 @@ public class CommentEntity {
         this.updateDate = Timestamp.from(Instant.now());
     }
 
-    public static CommentEntity of(String comment, PostEntity post, UsersEntity member) {
+    public static CommentEntity of(String comment, PostEntity post, String member) {
         CommentEntity entity = new CommentEntity();
         entity.setComment(comment);
         entity.setPost(post);

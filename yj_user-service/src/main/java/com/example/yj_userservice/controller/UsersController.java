@@ -3,26 +3,28 @@ package com.example.yj_userservice.controller;
 
 import com.example.yj_userservice.config.ClassUtils;
 import com.example.yj_userservice.dto.Users;
+
 import com.example.yj_userservice.dto.request.*;
-import com.example.yj_userservice.dto.response.Response;
-import com.example.yj_userservice.dto.response.UserJoinResponse;
-import com.example.yj_userservice.dto.response.UserLoginResponse;
-import com.example.yj_userservice.dto.response.UserProfileResponse;
+import com.example.yj_userservice.dto.response.*;
+import com.example.yj_userservice.exception.ErrorCode;
+import com.example.yj_userservice.exception.ProchatException;
+import com.example.yj_userservice.repository.UserRepository;
 import com.example.yj_userservice.service.UserService;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RequestMapping("/")
+@RequestMapping("/api/Users")
 @RestController
 @RequiredArgsConstructor
 public class UsersController {
 
     private final UserService userService;
-
-    @GetMapping("/health_check")
+    private final UserRepository userRepository;
+    @GetMapping("/api")
     public String status() {
         return "susses-user-service";
 
@@ -33,6 +35,8 @@ public class UsersController {
         return Response.success(UserJoinResponse.fromMember(
                 userService.join( request.getEmail(), request.getMemberPw())));
     }
+
+
 
     @PostMapping("/logout")
     public Response<UserLoginResponse> logout(@RequestBody UserLogoutRequest request, Authentication authentication) {
@@ -80,6 +84,14 @@ public class UsersController {
 
         return Response.success(UserJoinResponse.fromMember(userService.loadUserByUsername(authentication.getName())));
     }
+
+    @GetMapping("/find-by-email")
+    public UserResponse findByEmail(@RequestBody UserRequest userRequest) {
+        // 여기서 userService를 통해 이메일을 기반으로 유저를 찾아서 UserResponse로 변환하여 반환
+        Users user = userService.loadUserByUsername(userRequest.getEmail());
+        return UserResponse.fromUser(user);
+    }
+
 
 
 

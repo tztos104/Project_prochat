@@ -13,8 +13,8 @@ import java.sql.Timestamp;
 public class FollowResponse {
 
     int id;
-    private Users following;
-    private Users follower;
+    private String following;
+    private String follower;
     private Timestamp follow_date;
 
     public static FollowResponse fromFollow(Follow follow) {

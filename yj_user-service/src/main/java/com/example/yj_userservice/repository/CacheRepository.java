@@ -5,7 +5,6 @@ import com.example.yj_userservice.dto.Users;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;

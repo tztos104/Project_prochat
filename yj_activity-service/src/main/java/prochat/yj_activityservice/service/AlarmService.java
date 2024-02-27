@@ -2,6 +2,7 @@ package prochat.yj_activityservice.service;
 
 
 
+import com.example.yj_userservice.dto.Users;
 import com.example.yj_userservice.dto.entity.UsersEntity;
 import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import prochat.yj_activityservice.client.UserFeignClient;
 import prochat.yj_activityservice.model.alarm.AlarmArgs;
 import prochat.yj_activityservice.model.alarm.AlarmNoti;
 import prochat.yj_activityservice.model.alarm.AlarmType;
@@ -30,15 +32,15 @@ public class AlarmService {
     private final AlarmRepository alarmRepository;
     private final EmitterRepository emitterRepository;
 
-    private final UserRepository userRepository;
+    private final UserFeignClient userFeignClient;
     private static final Long DEFAULT_TIMEOUT = 60L * 1000 * 60;
 
     //알람을 전성하는 메서드
-    public void send(AlarmType type, AlarmArgs args, Long receiverId, String content) {
+    public void send(AlarmType type, AlarmArgs args, String receiverId, String content) {
         // 알람을 받을 사용자 정보 조회
-        UsersEntity memberEntity = userRepository.findById(receiverId).orElseThrow(() -> new ProchatException(ErrorCode.USER_NOT_FOUND));
+        Users memberEntity = userFeignClient.findByEmail(receiverId);
         // 알람 엔터티 생성 및 저장
-        AlarmEntity entity = AlarmEntity.of(type, args, memberEntity);
+        AlarmEntity entity = AlarmEntity.of(type, args, memberEntity.getEmail());
         // 알람 데이터 생성
         AlarmNoti alarmNoti = new AlarmNoti(type.getAlarmText(),args.getFromUserId(), args.getTargetId(), content);
 
@@ -61,7 +63,7 @@ public class AlarmService {
     }
 
     //사용자의 알람 구독을 위한 SseEmitter를 생성하고 반환하는 메서드.
-    public SseEmitter connectNotification(Long userId) {
+    public SseEmitter connectNotification(String userId) {
         SseEmitter emitter = new SseEmitter(DEFAULT_TIMEOUT);
         emitterRepository.save(userId, emitter);
         // SseEmitter 완료 및 타임아웃 이벤트 처리

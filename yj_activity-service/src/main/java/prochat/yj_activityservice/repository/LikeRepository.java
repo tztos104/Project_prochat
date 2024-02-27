@@ -1,6 +1,7 @@
 package prochat.yj_activityservice.repository;
 
 
+import com.example.yj_userservice.dto.Users;
 import com.example.yj_userservice.dto.entity.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import prochat.yj_activityservice.PostEntity;
+import prochat.yj_activityservice.model.entity.PostEntity;
 import prochat.yj_activityservice.model.entity.CommentEntity;
 import prochat.yj_activityservice.model.entity.LikeEntity;
 
@@ -17,8 +18,8 @@ import java.util.Optional;
 
 @Repository
 public interface LikeRepository extends JpaRepository<LikeEntity,Long> {
-    Optional<LikeEntity> findByMemberAndPost(UsersEntity member, PostEntity post);
-    Optional<LikeEntity> findByMemberAndComment(UsersEntity member, CommentEntity comment);
+    Optional<LikeEntity> findByMemberAndPost(Users member, PostEntity post);
+    Optional<LikeEntity> findByMemberAndComment(Users member, CommentEntity comment);
 
 
     @Query(value = "SELECT COUNT(*) from LikeEntity entity WHERE entity.post = :post")

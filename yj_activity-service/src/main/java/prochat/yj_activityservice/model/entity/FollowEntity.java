@@ -18,13 +18,10 @@ public class FollowEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @ManyToOne
-    @JoinColumn(name = "following_id")
-    private UsersEntity following;
+    private String following;
 
-    @ManyToOne
-    @JoinColumn(name = "follower_id")
-    private UsersEntity follower;
+
+    private String follower;
 
     private Timestamp follow_date;
 
@@ -33,7 +30,7 @@ public class FollowEntity {
         this.follow_date = Timestamp.from(Instant.now());
     }
 
-    public static FollowEntity of(UsersEntity follower, UsersEntity following) {
+    public static FollowEntity of(String follower, String following) {
         FollowEntity entity = new FollowEntity();
         entity.setFollowing(following);
         entity.setFollower(follower);

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import prochat.yj_activityservice.FileUploadDownload;
+import prochat.yj_activityservice.model.FileUploadDownload;
 import prochat.yj_activityservice.model.entity.File;
 import prochat.yj_activityservice.repository.FileRepository;
 

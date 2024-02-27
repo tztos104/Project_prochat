@@ -5,6 +5,7 @@ import com.example.yj_userservice.dto.request.EmailCertRequest;
 import com.example.yj_userservice.dto.response.EmailCertResponse;
 import com.example.yj_userservice.dto.response.Response;
 import com.example.yj_userservice.service.MailSendService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 

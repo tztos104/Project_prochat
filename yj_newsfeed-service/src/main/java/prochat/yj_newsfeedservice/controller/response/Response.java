@@ -31,4 +31,8 @@ public class Response<T> {
 
 
     }
+
+    public T getData() {
+        return result; // 데이터 반환
+    }
 }

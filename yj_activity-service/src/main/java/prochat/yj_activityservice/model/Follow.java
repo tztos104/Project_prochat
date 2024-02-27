@@ -15,8 +15,8 @@ public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    private Users following;
-    private Users follower;
+    private String following;
+    private String follower;
     private Timestamp follow_date;
 
 
@@ -26,8 +26,8 @@ public class Follow {
     public static Follow fromEntity(FollowEntity entity) {
         return new Follow(
                 entity.getId(),
-                Users.fromEntity(entity.getFollower()),
-                Users.fromEntity(entity.getFollowing()),
+                entity.getFollower(),
+                entity.getFollowing(),
                 entity.getFollow_date()
 
         );

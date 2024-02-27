@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import prochat.yj_activityservice.PostEntity;
+import prochat.yj_activityservice.model.entity.PostEntity;
 import prochat.yj_activityservice.model.entity.CommentEntity;
 
 @Repository

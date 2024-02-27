@@ -16,24 +16,24 @@ public class EmitterRepository {
 
     private Map<String, SseEmitter> emitterMap = new HashMap<>();
 
-    public SseEmitter save(Long userId, SseEmitter emitter) {
+    public SseEmitter save(String userId, SseEmitter emitter) {
         final String key = getKey(userId);
         log.info("Set Emitter to Redis {}({})", key, emitter);
         emitterMap.put(key, emitter);
         return emitter;
     }
 
-    public void delete(Long userId) {
+    public void delete(String userId) {
         emitterMap.remove(getKey(userId));
     }
 
-    public Optional<SseEmitter> get(Long userId) {
+    public Optional<SseEmitter> get(String userId) {
         SseEmitter result = emitterMap.get(getKey(userId));
         log.info("Get Emitter from Redis {}", result);
         return Optional.ofNullable(result);
     }
 
-    private String getKey(Long userId) {
+    private String getKey(String userId) {
         return "emitter:UID:" + userId;
     }
 

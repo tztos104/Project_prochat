@@ -12,13 +12,13 @@ import java.util.Optional;
 
 
 public interface FollowRepository extends JpaRepository<FollowEntity, Long> {
-    List<FollowEntity> findAllByFollower(UsersEntity follower);
-    List<FollowEntity> findAllByFollowing(UsersEntity following);
-    Optional<FollowEntity> findByFollowerAndFollowing(UsersEntity followerId, UsersEntity followingId);
+    List<FollowEntity> findAllByFollower(String follower);
+    List<FollowEntity> findAllByFollowing(String following);
+    Optional<FollowEntity> findByFollowerAndFollowing(String followerId, String followingId);
 
-    @Query(value = "SELECT COUNT(*) from FollowEntity entity WHERE entity.follower = :memberId")
-    Integer countByfollower(@Param("memberId") UsersEntity memberId);
-
-    @Query(value = "SELECT COUNT(*) from FollowEntity entity WHERE entity.following = :memberId")
-    Integer countByfollowing(@Param("memberId") UsersEntity memberId);
+//    @Query(value = "SELECT COUNT(*) from FollowEntity entity WHERE entity.follower = :memberId")
+//    Integer countByfollower(@Param("memberId") String memberId);
+//
+//    @Query(value = "SELECT COUNT(*) from FollowEntity entity WHERE entity.following = :memberId")
+//    Integer countByfollowing(@Param("memberId") String memberId);
 }

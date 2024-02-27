@@ -30,9 +30,8 @@ public class AlarmEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "members_id")
-    private UsersEntity members;
+
+    private String members;
 
     @Enumerated(EnumType.STRING)
     private AlarmType alarmType;
@@ -61,7 +60,7 @@ public class AlarmEntity {
         this.updateDate = Timestamp.from(Instant.now());
     }
 
-    public static AlarmEntity of(AlarmType alarmType, AlarmArgs args, UsersEntity member) {
+    public static AlarmEntity of(AlarmType alarmType, AlarmArgs args, String member) {
         AlarmEntity entity = new AlarmEntity();
         entity.setAlarmType(alarmType);
         entity.setArgs(args);

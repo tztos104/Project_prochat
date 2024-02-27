@@ -29,7 +29,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
-            - AuthorizationHeaderFilter
+            #- AuthorizationHeaderFilter
             #- AddRequestHeader=user-request, user-request-header  #?? ?? ????
             #- AddResponseHeader=user-response, user-response-header
 
@@ -44,6 +44,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
             - CustomFilter
+
         - id: user-service
           uri: lb://USER-SERVICE/
           #          uri: http://localhost:8081

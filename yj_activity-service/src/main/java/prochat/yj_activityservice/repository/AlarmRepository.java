@@ -8,6 +8,6 @@ import prochat.yj_activityservice.model.entity.AlarmEntity;
 
 public interface AlarmRepository extends JpaRepository<AlarmEntity, Long> {
 
-    Page<AlarmEntity> findAllByMembersId(Long MembersId, Pageable pageable);
+    Page<AlarmEntity> findAllByMembers(String MembersId, Pageable pageable);
 
 }
