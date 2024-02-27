@@ -21,7 +21,6 @@ import java.util.List;
 public class FollowService {
 
     private final FollowRepository followRepository;
-
     private final UserFeignClient userFeignClient;
     private final AlarmService alarmService;
 

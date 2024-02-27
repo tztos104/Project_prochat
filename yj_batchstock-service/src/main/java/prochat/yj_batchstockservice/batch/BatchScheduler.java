@@ -22,7 +22,7 @@ public class BatchScheduler {
 
     private final Job job;
 
-    @Scheduled(cron = "0 25 18 ? * *") // 매일 새벽 1시에 실행 (초, 분, 시, 일, 월, 주 순서)
+    @Scheduled(cron = "0 0 1 ? * *") // 매일 새벽 1시에 실행 (초, 분, 시, 일, 월, 주 순서)
     public void runBatchJob() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
         crawlingService.StockData();
         JobParameters jobParameters = new JobParameters();
