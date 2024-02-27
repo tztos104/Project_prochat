@@ -170,6 +170,7 @@ docker-compose port
 # **Api 명세**
 <details>
 <summary>클릭하여 섹션 열기/닫기</summary>
+  
 ![스크린샷 2024-02-27 213625](https://github.com/tztos104/Project_prochat/assets/128444192/b41319fe-0322-46ca-b11c-89ce57de69a9)
 ![스크린샷 2024-02-27 213658](https://github.com/tztos104/Project_prochat/assets/128444192/d7ee66ec-0aa2-4682-918a-c09635ad5915)
 ![스크린샷 2024-02-27 213731](https://github.com/tztos104/Project_prochat/assets/128444192/c5ce9943-c4bf-40d2-9def-d55c8179108d)
