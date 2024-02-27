@@ -1,4 +1,6 @@
 # **Docker Compose 사용 가이드**
+<details>
+<summary>클릭하여 섹션 열기/닫기</summary>
 
 ## **1. 컴포즈 실행**
 
@@ -104,3 +106,16 @@ docker-compose unpause 서비스_명
 ```bash
 docker-compose port
 ```
+
+</details>
+
+# **Api 명세**
+<details>
+<summary>클릭하여 섹션 열기/닫기</summary>
+
+![스크린샷 2024-02-27 170621](https://github.com/tztos104/Project_prochat/assets/128444192/b0b66719-6aee-4a6c-b22b-5b3e37de1633)
+![스크린샷 2024-02-27 170550](https://github.com/tztos104/Project_prochat/assets/128444192/dba77b1d-1e90-47f3-af75-afafb585171a)
+![스크린샷 2024-02-27 170214](https://github.com/tztos104/Project_prochat/assets/128444192/24ff67ad-a42c-4ff5-b1c4-22d993fd4d4d)
+![스크린샷 2024-02-27 170158](https://github.com/tztos104/Project_prochat/assets/128444192/fa7c3ece-2e7b-4d5a-9ce7-4dfcd2760f2d)
+
+</details>
