@@ -1,4 +1,4 @@
-package com.example.yj_userservice.dto;
+package com.example.yj_userservice.model;
 
 public enum MemberRole {
     ADMIN,

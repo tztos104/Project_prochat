@@ -10,8 +10,8 @@ import prochat.yj_newsfeedservice.response.UserResponse;
 
 @FeignClient(name = "user-service")
 public interface UserFeignClient {
-    @PostMapping(path = "/find-by-id")
-    UserResponse getUserById(@RequestBody UserRequest dto);
+    @PostMapping(path = "/find-by-email")
+    UserResponse getUserById(@RequestBody String email);
 
 //    @PostMapping("/get-my-follower")
 //    GetMyFollowersResponseDto getMyFollower(GetMyFollowersRequestDto dto);

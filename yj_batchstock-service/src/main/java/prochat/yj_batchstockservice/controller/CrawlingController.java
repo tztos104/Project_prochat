@@ -1,6 +1,8 @@
 package prochat.yj_batchstockservice.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,9 +15,9 @@ import prochat.yj_batchstockservice.service.CrawlingService;
 
 
 import java.util.List;
-
+@Tag(name = "CrawlingController", description = "데이터 크롤링 Api")
 @RestController
-@RequestMapping("/crawling")
+@RequestMapping("api/crawling")
 public class CrawlingController {
     @Autowired
     private CrawlingService service;
@@ -27,7 +29,7 @@ public class CrawlingController {
         String str = service.StockData();
         return str;
     }*/
-    
+  @Operation(summary = "종목리스트 불러오기 api")
     @GetMapping("/stockinfojson")
     public Response<?> CStock2() {
 
@@ -35,7 +37,7 @@ public class CrawlingController {
 
         return Response.success();
     }
-
+    @Operation(summary = "종목데이터 불러오기 api")
     @GetMapping("/stockData")
     public Response<?> stockData(@RequestBody StockDataRequest request) {
         List<String> stockCode = stockRepository.findStockCode();

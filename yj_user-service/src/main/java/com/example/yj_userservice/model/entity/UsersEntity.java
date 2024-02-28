@@ -1,7 +1,7 @@
-package com.example.yj_userservice.dto.entity;
+package com.example.yj_userservice.model.entity;
 
 
-import com.example.yj_userservice.dto.MemberRole;
+import com.example.yj_userservice.model.MemberRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

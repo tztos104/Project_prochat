@@ -1,4 +1,4 @@
-package com.example.yj_userservice.dto.response;
+package com.example.yj_userservice.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

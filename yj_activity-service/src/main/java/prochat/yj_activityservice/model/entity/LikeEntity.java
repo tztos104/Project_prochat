@@ -1,8 +1,7 @@
 package prochat.yj_activityservice.model.entity;
 
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.Users;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

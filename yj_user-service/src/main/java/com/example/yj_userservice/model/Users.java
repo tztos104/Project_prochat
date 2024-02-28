@@ -1,12 +1,11 @@
-package com.example.yj_userservice.dto;
+package com.example.yj_userservice.model;
 
 
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.entity.UsersEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

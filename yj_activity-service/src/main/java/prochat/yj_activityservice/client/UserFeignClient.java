@@ -1,7 +1,6 @@
 package prochat.yj_activityservice.client;
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.Users;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

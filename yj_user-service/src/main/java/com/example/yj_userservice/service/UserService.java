@@ -1,7 +1,7 @@
 package com.example.yj_userservice.service;
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.Users;
+import com.example.yj_userservice.model.entity.UsersEntity;
 import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
 import com.example.yj_userservice.repository.CacheRepository;
@@ -10,6 +10,7 @@ import com.example.yj_userservice.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

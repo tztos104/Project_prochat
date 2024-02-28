@@ -1,8 +1,7 @@
 package prochat.yj_activityservice.service;
 
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.Users;
 import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
 

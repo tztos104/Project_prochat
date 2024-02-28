@@ -2,7 +2,7 @@ package com.example.yj_userservice.config;
 
 
 
-import com.example.yj_userservice.dto.Users;
+import com.example.yj_userservice.model.Users;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 

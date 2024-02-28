@@ -21,13 +21,13 @@ public class NewsFeedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+    private String userEmail;
     private String userName;  // 활동 내용
     @Enumerated(EnumType.STRING)
     private NewsFeedType newsFeedType;  // 활동 타입
-    private Long activityUserId;
+    private String activityUserEmail;
     private String activityUserName;
-    private Long relatedUserId;
+    private String relatedUserEmail;
     private String relatedUserName;
     private Long relatedPosterId;  // 해당 활동이 포함된 글
     private String relatedPosterName;  // 해당 활동이 포함된 글
@@ -45,12 +45,12 @@ public class NewsFeedEntity {
         this.updateDate= Timestamp.from(Instant.now());
     }
 
-    public static NewsFeedEntity of(Long userId, NewsFeedType newsFeedType,Long activityUserId,Long relatedUserId,Long relatedPosterId) {
+    public static NewsFeedEntity of(String userEmail, NewsFeedType newsFeedType,String activityUserId,String relatedUserId,Long relatedPosterId) {
         NewsFeedEntity entity = new NewsFeedEntity();
-        entity.setUserId(userId);
+        entity.setUserEmail(userEmail);
         entity.setNewsFeedType(newsFeedType);
-        entity.setActivityUserId(activityUserId);
-        entity.setRelatedUserId(relatedUserId);
+        entity.setActivityUserEmail(activityUserId);
+        entity.setRelatedUserEmail(relatedUserId);
         entity.setRelatedPosterId(relatedPosterId);
         return entity;
     }

@@ -1,7 +1,7 @@
 package com.example.yj_userservice.repository;
 
 
-import com.example.yj_userservice.dto.Users;
+import com.example.yj_userservice.model.Users;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

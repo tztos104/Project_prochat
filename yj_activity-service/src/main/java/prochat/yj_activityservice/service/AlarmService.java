@@ -2,14 +2,11 @@ package prochat.yj_activityservice.service;
 
 
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.Users;
 import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
-import com.example.yj_userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import prochat.yj_activityservice.client.UserFeignClient;

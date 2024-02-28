@@ -2,13 +2,12 @@ package com.example.yj_userservice.service;
 
 
 import com.example.yj_userservice.config.EncoderConfig;
-import com.example.yj_userservice.dto.response.EmailCertResponse;
+import com.example.yj_userservice.model.response.EmailCertResponse;
 import com.example.yj_userservice.exception.ErrorCode;
 import com.example.yj_userservice.exception.ProchatException;
 import com.example.yj_userservice.repository.CertificationNumber;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

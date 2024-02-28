@@ -1,7 +1,6 @@
 package prochat.yj_activityservice.model.entity;
 
 
-import com.example.yj_userservice.dto.entity.UsersEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

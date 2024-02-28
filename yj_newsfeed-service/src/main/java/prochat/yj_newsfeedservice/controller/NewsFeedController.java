@@ -6,8 +6,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import prochat.yj_newsfeedservice.controller.request.CreateNewsFeedRequest;
 import prochat.yj_newsfeedservice.controller.response.Response;
+import prochat.yj_newsfeedservice.model.entity.NewsFeedEntity;
 import prochat.yj_newsfeedservice.service.NewsFeedService;
+
+import java.util.List;
 
 
 @Slf4j
@@ -17,39 +21,27 @@ import prochat.yj_newsfeedservice.service.NewsFeedService;
 public class NewsFeedController {
     private final NewsFeedService newsFeedService;
 
-    @PostMapping("/get-myNewsFeed")
-    Response<GetMyNewsFeedRequestDto> getMyNewsFeed(
-           @RequestBody GetMyNewsFeedRequestDto requestBody,
-            HttpServletRequest request
-    ){
-        String jwtToken = getTokenFromHeader(request.getHeader(HEADER_STRING));
-        Long loginId = getUserIdFromToken(jwtToken);
-        Long userId = requestBody.getUserId();
-        if(loginId!=userId) return ResponseDto.certificationFail();
-        ResponseEntity<? super GetMyNewsFeedResponseDto> response = newsFeedService.getMyNewsFeeds(requestBody);
-        return response;
+    @GetMapping("/user/{userId}")
+    public List<NewsFeedEntity> getNewsFeedsByUserId(@PathVariable String userId) {
+        return newsFeedService.getNewsFeedsByUserId(userId);
     }
 
-    @PostMapping("/get-myNewsFeed-by-types")
-    ResponseEntity<? super GetMyNewsFeedByTypeResponseDto> getMyNewsFeedByTypes(
-            @Valid@RequestBody GetMyNewsFeedByTypesRequestDto requestBody,
-            HttpServletRequest request
-    ){
-        String jwtToken = getTokenFromHeader(request.getHeader(HEADER_STRING));
-        Long loginId = getUserIdFromToken(jwtToken);
-        Long userId = requestBody.getUserId();
-        ResponseEntity<? super GetMyNewsFeedByTypeResponseDto> response = newsFeedService.getMyNewsFeedsByType(requestBody);
-        return response;
+    @GetMapping("/user/{userId}/orderByDateDesc")
+    public List<NewsFeedEntity> getNewsFeedsByUserIdOrderByDateDesc(@PathVariable String userId) {
+        return newsFeedService.getNewsFeedsByUserIdOrderByDateDesc(userId);
     }
 
-    @PostMapping("create-newsFeed")
-    ResponseEntity<? super CreateNewsFeedResponseDto>createNewsFeed(
-            @RequestBody CreateNewsFeedRequestDto requestBody
-    ){
-        log.info("뉴스피드 메시지 도착");
-        ResponseEntity<? super CreateNewsFeedResponseDto> response = newsFeedService.createNewsFeed(requestBody);
-        return response;
+    @GetMapping("/all/orderByDateDesc")
+    public List<NewsFeedEntity> getAllNewsFeedsOrderByDateDesc() {
+        return newsFeedService.getAllNewsFeedsOrderByDateDesc();
     }
 
+    @PostMapping("/create")
+    public NewsFeedEntity createNewsFeed(@RequestBody CreateNewsFeedRequest request) {
+        // 클라이언트에서 요청 바디로 전달한 정보를 사용하여 뉴스피드를 생성합니다.
+        return newsFeedService.createNewsFeed(request.getUserId(), request.getNewsFeedType(),
+                request.getActivityUserId(), request.getRelatedUserId(),
+                request.getRelatedPosterId());
+    }
 
 }

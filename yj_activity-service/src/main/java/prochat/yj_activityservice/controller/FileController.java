@@ -2,6 +2,8 @@ package prochat.yj_activityservice.controller;
 
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,7 @@ import prochat.yj_activityservice.repository.FileRepository;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+@Tag(name = "FileController", description = "파일 업로드 관련 Api")
 @RestController
 @RequestMapping("file")
 public class FileController {
@@ -26,7 +28,7 @@ public class FileController {
 	
 	@Autowired
 	FileRepository fileRepository;
-	
+	@Operation(summary = "파일 업로드 API")
 	@PostMapping("upload")
 	public ResponseEntity<Object> upload(
 			@RequestParam("tempFile") MultipartFile tempFile,

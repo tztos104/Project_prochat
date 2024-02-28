@@ -1,4 +1,4 @@
-package com.example.yj_userservice.dto.request;
+package com.example.yj_userservice.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

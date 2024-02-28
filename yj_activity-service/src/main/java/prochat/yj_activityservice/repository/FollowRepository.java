@@ -1,10 +1,7 @@
 package prochat.yj_activityservice.repository;
 
 
-import com.example.yj_userservice.dto.entity.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import prochat.yj_activityservice.model.entity.FollowEntity;
 
 import java.util.List;

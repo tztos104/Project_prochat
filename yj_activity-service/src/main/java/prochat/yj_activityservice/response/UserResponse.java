@@ -1,7 +1,7 @@
 package prochat.yj_activityservice.response;
 
 
-import com.example.yj_userservice.dto.Users;
+import com.example.yj_userservice.model.Users;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

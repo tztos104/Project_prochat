@@ -1,7 +1,7 @@
-package com.example.yj_userservice.dto.response;
+package com.example.yj_userservice.model.response;
 
 
-import com.example.yj_userservice.dto.Users;
+import com.example.yj_userservice.model.Users;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

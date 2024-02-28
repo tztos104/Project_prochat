@@ -1,8 +1,7 @@
 package com.example.yj_userservice.config.filter;
 
-import com.example.yj_userservice.dto.Users;
-import com.example.yj_userservice.dto.entity.UsersEntity;
-import com.example.yj_userservice.dto.request.UserLoginRequest;
+import com.example.yj_userservice.model.Users;
+import com.example.yj_userservice.model.request.UserLoginRequest;
 import com.example.yj_userservice.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;

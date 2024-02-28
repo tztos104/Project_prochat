@@ -1,6 +1,6 @@
 package com.example.yj_userservice.repository;
 
-import com.example.yj_userservice.dto.entity.UsersEntity;
+import com.example.yj_userservice.model.entity.UsersEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
