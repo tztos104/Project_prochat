@@ -4,7 +4,7 @@
 ## **서비스 기능**
 <details>
 
-마이크로 서비스(MSA)로 3개의 서비스로 분리
+마이크로 서비스(MSA)로 4개의 서비스로 분리
 -docker-compose 환경구축
 
 -API Gateway
